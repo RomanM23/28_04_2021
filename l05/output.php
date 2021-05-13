@@ -16,6 +16,7 @@ echo "Hello \n My name is: $name", '<br>';
 
 echo '<hr>';
 
+// nowdoc
 $js = <<<'JS'
 document.addEventListener('DOMContentLoaded',function () {
     alert('$name');
@@ -31,4 +32,13 @@ $html = <<<HTML
     <script>$js</script>
 HTML;
 echo $html;
+
+$sql = <<<SQL
+    SELECT 
+        *
+    FROM users
+    INNER JOIN  contacts ON contacts.user_id = users.id
+    WHERE users.id = 1
+SQL;
+echo $sql;
 

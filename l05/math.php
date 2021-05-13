@@ -40,3 +40,6 @@ $int = 10;
 //exit;
 $int2 = $int++ + ++$int;
 var_dump($int2);
+
+$int3 = $int + ++$int;
+var_dump($int3);
