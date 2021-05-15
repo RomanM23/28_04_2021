@@ -8,8 +8,8 @@ $float = 1.0;
 
 var_dump(false == null);
 var_dump(false === null);
-var_dump(1 == 1.0);
-var_dump(1 === 1.0);
+var_dump($int == $float);
+var_dump($int === $float);
 var_dump(PHP_INT_MIN, PHP_INT_MAX);
 
 $array = [
@@ -33,6 +33,7 @@ $object = new stdClass();
 var_dump($object);
 
 var_dump(__DIR__);
+
 $resourse = fopen(__DIR__ . '/concatenation.php', 'rb');
 var_dump($resourse);
 fclose($resourse);
@@ -41,13 +42,5 @@ var_dump(gettype($resourse));
 
 $callbak = function (){};
 var_dump($callbak);
-
-
-
-
-
-
-
-
 
 
