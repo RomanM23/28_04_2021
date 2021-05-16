@@ -3,7 +3,8 @@
 $int = random_int(0,5);
 var_dump($int);
 
-case 0: = ($int % 2 === 0);
+$isEven = ($int % 2 === 0);
+var_dump($isEven);
 
 if ($int === 0) {
     echo 'Number is zero';
@@ -14,6 +15,8 @@ if ($int === 0) {
 } else {
     echo 'Number is odd';
 }
+
+echo '<br>';
 
 switch ($int) {
     case 0:
