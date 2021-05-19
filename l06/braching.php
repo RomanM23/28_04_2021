@@ -1,5 +1,6 @@
 <?php
 
+
 $int = random_int(0,5);
 var_dump($int);
 
@@ -51,16 +52,3 @@ echo '<br>';
 //$reeee = 33;
 //echo isset($reeee) ? $reeee : 'not exists';
 echo $reeee ?? 'not exists';
-
-
-
-
-
-
-
-
-
-
-
-
-
