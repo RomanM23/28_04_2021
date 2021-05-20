@@ -86,7 +86,7 @@ echo '</pre>';
 
 var_dump($name, $lastName, $age);
 
-$a3 = compact()
+$a3 = compact();
 
 
 
