@@ -13,7 +13,7 @@ $count = count($array);
 for ($si = 0; $i < $count; $i++){
     var_dump($array[$i]);
 }
-
+// tablisa umnodheniy
 const START = 1;
 const END = 10;
 for ($col = START; $col <= END; $col++){
@@ -27,11 +27,14 @@ for ($col = START; $col <= END; $col++){
 $col =1;
 for ($row = 1; $row <= 10; $row++) {
     $result = $col * $row;
-    echo
+    echo "{$col} x {$row} = {$result}<br>";
+
+    if ($row === 10) {
+        $col++;
+        echo '<br>';
+    }
+
+    if ($result === 100) {
+        break;
+    }
 }
-
-
-
-
-
-

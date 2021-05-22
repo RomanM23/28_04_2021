@@ -22,9 +22,3 @@ foreach ($letters as $letter) {
         var_dump("{$letter} > {$number}");
     }
 }
-
-8
-
-
-
-

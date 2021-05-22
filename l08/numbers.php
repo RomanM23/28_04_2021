@@ -8,20 +8,11 @@ while (true) {
     echo $realNumber == $number ? 'You WIN' : 'You LOSE';
     echo PHP_EOL;
 
-    $continue = strtolower(readline('Plsy again'))
+    $continue = strtolower(readline('Plsy again? (Y/n)'));
+    if ($continue === 'n') {
+        break;
+    }
 }
 
 
 
-
-
-
-
-
-$data = [1, 2, 5, 7, 9];
-
-
-do {
-    $number = random_int(1, 10);
-    var_dump($number);
-} while(in_array($number, $data));
