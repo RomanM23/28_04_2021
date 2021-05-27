@@ -10,24 +10,22 @@ function test()
 //    var_dump($g1, $v1);
 //    $g1 = 55;
 //    unset($g1);
+
     var_dump($GLOBALS['g1'], $GLOBALS['v1']);
-
-    $g1 = 55;
-
+    $GLOBALS['g1'] = 55;
     unset($GLOBALS['g1']);
 }
 
 //test();
 //test();
-//
 
 var_dump($g1);
 
-$test = function () use($g1, $v1) {
+$test = function () use ($g1, $v1) {
     var_dump($g1, $v1);
     $g1 = 44;
     unset($g1);
-}
+};
 
 $test();
 $test();
@@ -39,6 +37,6 @@ function linked(&$p1)
     unset($p1);
 }
 
-$data = 123;
+$data = 122;
 linked($data);
 var_dump($data);

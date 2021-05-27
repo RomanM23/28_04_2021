@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 function hello(string $name,int $age,string $gender, string $greeting = 'Helllo')
 {
-    echo "hello, {$gender} {$name}, {$age} years old<br>";
+    echo "hello,{$greeting}, {$gender}, {$name}, {$age} years old<br>";
 }
 
 $users = [

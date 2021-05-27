@@ -6,10 +6,8 @@ hello();
 
 function hello()
 {
-
     echo 'hello my friend!<br>';
     echo __FUNCTION__, '<br>';
-
     handshake();
 }
 
