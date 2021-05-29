@@ -1,73 +1,44 @@
 <?php
 
 
-$MENU = [
-    'pivko' => [
-        [
-            'title' => 'obolony' ,
-            'link' => 'https://www.youtube.com/watch?v=b7Gas0nBEhQ',
-        ],
-        [
-            'title' => 'lvivske',
-            'link' => 'https://www.youtube.com/watch?v=b7Gas0nBEhQ' ,
-        ],
-        [
-            'title' => 'tuborg',
-            'link' => 'https://www.youtube.com/watch?v=b7Gas0nBEhQ' ,
-        ]
-    ],
-    'FRUITS' => [
-        [
-            'title' => 'apple' ,
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-        [
-            'title' => 'pears',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-        [
-            'title' => 'banana',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ]
-    ],
-    'VEGETABLES' => [
-        [
-            'title' => 'potato',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-        [
-            'title' => 'carrots',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-        [
-            'title' => 'onion',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-    ],
-    'BERRIES' => [
-        [
-            'title' => 'cherry',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-        [
-            'title' => 'plum',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-        [
-            'title' => 'merry',
-            'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ,
-        ],
-    ],
+$data = [
+    ['title' => 'pivkoooo', 'link' => 'https://www.youtube.com/watch?v=b7Gas0nBEhQ'],
+    ['title' => 'pivko', 'children' =>[
+        ['title' => 'obolony' , 'link' => 'https://www.youtube.com/watch?v=b7Gas0nBEhQ'],
+        ['title' => 'lvivske', 'link' => 'https://www.youtube.com/watch?v=b7Gas0nBEhQ'],
+        ['title' => 'tuborg', 'link' => 'https://www.youtube.com/watch?v=b7Gas0nBEhQ'],
+    ]],
+    ['title' => 'FRUITS', 'children' => [
+        ['title' => 'apple' , 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+        ['title' => 'pears', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+        ['title' => 'banana', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+    ]],
+    ['title' => 'VEGETABLES', 'children' => [
+        ['title' => 'potato', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+        ['title' => 'carrots', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+        ['title' => 'onion', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+    ]],
+    ['title' => 'BERRIES', 'children' => [
+        ['title' => 'cherry', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+        ['title' => 'plum', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE'],
+        ['title' => 'merry', 'link' => 'https://www.youtube.com/watch?v=j9y_ZEoR2GE' ],
+    ]],
 ];
-//var_dump($MENU);
-//var_dump($MENU['FRUITS'][1]);
+//var_dump($data);
 
-
-foreach ($MENU as $kay => $value) {
-    var_dump($kay, $value);
+$html = '<ul>';
+foreach ($data as $item) {
+    if (array_key_exists('link', $item)) {
+        $html .= "<li><a href='{$item['link']}'>{$item['title']}</a></li>";
+    } elseif (array_key_exists('children', $item)) {
+        $childrenHTML = '';
+        foreach ($item['children'] as $child) {
+            $childrenHTML .= "<li><a href='{$child['link']}'>{$child['title']}</a></li>";
+        }
+        $html .= "<li>{$item['title']}<ul>{$childrenHTML}</ul></li>";
+    }
 }
+$html .= '</ul>';
 
-
-
-
+echo $html;
 

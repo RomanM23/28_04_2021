@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/functions_2.php';
 
+/*      те саме шо і рекваєр тільки не дає фатал ерор як шо нема файлу functions_2.php
+include __DIR__ . '/functions_2.php';   */
+
 hello();
 
 function hello()
@@ -10,7 +13,7 @@ function hello()
     echo __FUNCTION__, '<br>';
     handshake();
 }
-
+handshake();
 hello();
 hello();
 hello();
