@@ -23,7 +23,7 @@ var_dump($g1);
 
 $test = function () use ($g1, $v1) {
     var_dump($g1, $v1);
-    $g1 = 44;
+    $g1 = 4444;
     unset($g1);
 };
 

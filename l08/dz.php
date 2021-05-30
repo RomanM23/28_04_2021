@@ -26,19 +26,38 @@ $data = [
 ];
 //var_dump($data);
 
-$html = '<ul>';
-foreach ($data as $item) {
-    if (array_key_exists('link', $item)) {
-        $html .= "<li><a href='{$item['link']}'>{$item['title']}</a></li>";
-    } elseif (array_key_exists('children', $item)) {
-        $childrenHTML = '';
-        foreach ($item['children'] as $child) {
-            $childrenHTML .= "<li><a href='{$child['link']}'>{$child['title']}</a></li>";
+//$html = '<ul>';
+//foreach ($data as $item) {
+//    if (array_key_exists('link', $item)) {
+//        $html .= "<li><a href='{$item['link']}'>{$item['title']}</a></li>";
+//    } elseif (array_key_exists('children', $item)) {
+//        $childrenHTML = '';
+//        foreach ($item['children'] as $child) {
+//            $childrenHTML .= "<li><a href='{$child['link']}'>{$child['title']}</a></li>";
+//        }
+//        $html .= "<li>{$item['title']}<ul>{$childrenHTML}</ul></li>";
+//    }
+//}
+//$html .= '</ul>';
+//
+//echo $html;
+
+function getMenuHtml(array $data): string
+{
+    $html = '<ul>';
+    foreach ($data as $row) {
+        if (array_key_exists('children', $row)) {
+            $html .= '<li>';
+            $html .= $row['title'];
+            $html .= getMenuHtml($row['children']);
+            $html .= '</li>';
+        } else {
+            $html .= "<li><a href='{$row['link']}'>{$row['title']}</a></li>";
         }
-        $html .= "<li>{$item['title']}<ul>{$childrenHTML}</ul></li>";
     }
+    $html .= '</ul>';
+
+    return $html;
 }
-$html .= '</ul>';
 
-echo $html;
-
+echo getMenuHtml($data);
