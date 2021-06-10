@@ -26,14 +26,14 @@ header('Location: forms.php');
 
 function wordsFilter(string $message): ?string
 {
-    $blacklist = [
+    $blackList = [
         'jepa',
         'nigga',
         'loh'
     ];
 
     $errors = [];
-    foreach ($blacklist as $word) {
+    foreach ($blackList as $word) {
         $contains = stripos($message, $word);
         if ($contains !== false) {
             $errors[] = $word;
@@ -50,12 +50,8 @@ function wordsFilter(string $message): ?string
             $suffix = 'is';
         }
 
-        return "{$prefix} '{$words}' {$suffix} is not accepted";
+        return "{$prefix} '{$words}' {$suffix} not accepted";
     }
 
     return null;
 }
-
-
-
-
