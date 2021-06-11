@@ -29,6 +29,18 @@ $rout = getRout();
                 </div>
                 <button type="submit" class="btn btn-success col-4">Create Directory</button>
             </form>
+
+            <form method="post" class="row" action="actions/create-dir.php?rout=<?= $rout ?>">
+                <div class="col-8">
+                    <label for="directory_name_input" class="d-none">Directory Name</label>
+                    <input type="text"
+                           name="dir_name"
+                           id="directory_name_input"
+                           class="form-control"
+                           placeholder="Directory Name">
+                </div>
+                <button type="submit" class="btn btn-success col-4">Create Directory</button>
+            </form>
         </div>
 
         <ul class="mt-3">
@@ -40,6 +52,11 @@ $rout = getRout();
                 </li>
             <?php endforeach; ?>
         </ul>
+        <?php
+        $string = "$rout";
+        $arr = explode("/", $string);
+        print_r($arr);
+        ?>
 
     </main>
 <?php
