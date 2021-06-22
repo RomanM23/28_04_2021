@@ -1,5 +1,7 @@
 <?php
 
+//сесії зберігають багато даних
+
 //ini_set('session.gc_maxlifetime', 5);
 
 session_start();

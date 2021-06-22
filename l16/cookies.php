@@ -1,5 +1,5 @@
 <?php
-
+//куки зберігають дуже мало даних
 setcookie('test', 123);
 //setcookie('temp', 'qwerty', time() +30);
 //setcookie('test', null, -1);
