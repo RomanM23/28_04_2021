@@ -1,3 +1,8 @@
+<?php
+
+require_once __DIR__ . '/security.php';
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,7 +31,7 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" aria-current="page" href="actions/sing-out.php">Sing Out</a>
                 </li>
             </ul>
             <form class="d-flex">
