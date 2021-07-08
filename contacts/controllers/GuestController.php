@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../models/UsersModel.php';
+model('UsersModel');
 
 function actionLogin()
 {
@@ -56,8 +56,3 @@ function actionRegistration()
     }
     render('guest/registration', ['errors' => $errors], 'guest');
 }
-//        createUser($_POST);
-//        exit;
-//    }
-//    render('guest/registration', [], 'guest');
-//}
