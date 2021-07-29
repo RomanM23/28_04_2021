@@ -7,11 +7,14 @@ services:
       - ./:/var/www
     depends_on:
       - db
+    env_file:
+      - .env
   nginx:
     image: nginx:1.17
     container_name: skillup_nginx
     ports:
       - 2804:80
+      - 8080:8080
     volumes:
       - ./:/var/www
       - ./docker/nginx/skillup.local.conf:/etc/nginx/conf.d/skillup.local.conf
@@ -20,6 +23,7 @@ services:
     depends_on:
       - app
   db:
+    platform: linux/x86_64
     image: mysql:8.0.23
     ports:
       - 3306:3306

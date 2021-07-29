@@ -1,11 +1,13 @@
 <?php
 
 use components\Config;
+use components\DB;
 use components\Router;
 use components\AbstractDispatcher;
 use cli\components\CliDispatcher;
 use components\Session;
 use components\Template;
+use web\components\User;
 use web\components\WebDispatcher;
 
 final class App
@@ -14,6 +16,8 @@ final class App
     public const ROUTER = 'router';
     public const TEMPLATE = 'template';
     public const SESSION = 'session';
+    public const DB = 'db';
+    public const USER = 'user';
 
     private array $storage = [];
 
@@ -36,9 +40,13 @@ final class App
         self::$instance = new self($config);
 
         self::$instance
+            ->setDB()
             ->setSession()
             ->setTemplate()
+            ->setUser()
             ->setRouter();
+
+        self::$instance->router()->init();
 
         return self::$instance;
     }
@@ -67,9 +75,37 @@ final class App
         return $this->storage[self::SESSION] ?? null;
     }
 
+    public function db(): DB
+    {
+        return $this->storage[self::DB];
+    }
+
+    public function user(): User
+    {
+        return $this->storage[self::USER];
+    }
+
+    public function router(): Router
+    {
+        return $this->storage[self::ROUTER];
+    }
+
     private function setConfig(array $config): self
     {
         $this->storage[self::CONFIG] = new Config($config);
+        return $this;
+    }
+
+    private function setDB(): self
+    {
+        $config = $this->config()->get('db');
+        $this->storage[self::DB] = new DB(
+            $config['host'],
+            $config['user'],
+            $config['password'],
+            $config['db_name']
+        );
+
         return $this;
     }
 
@@ -99,13 +135,16 @@ final class App
         return $this;
     }
 
+    private function setUser(): self
+    {
+        $this->storage[self::USER] = new User();
+        return $this;
+    }
+
     private function setRouter(): self
     {
         $dispatcher = $this->getDispatcher();
-        $router = new Router($dispatcher);
-        $router->init();
-
-        $this->storage[self::ROUTER] = $router;
+        $this->storage[self::ROUTER] = new Router($dispatcher);
         return $this;
     }
 
