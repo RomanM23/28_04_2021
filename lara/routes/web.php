@@ -25,7 +25,6 @@ Route::group(['middleware' => 'guest'], static function () {
 });
 
 Route::group(['middleware' => 'auth'], static function () {
-    Route::get('', 'App\Http\Controllers\IndexController@index');
-    Route::get('logout', 'App\Http\Controllers\UserController@logout');
+//    Route::get('', fn () => view('index'));
 //    Route::post('import.excel', 'App\Http\Controllers\ExcelController@import')->name('import.excel');
 });

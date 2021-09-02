@@ -11,8 +11,7 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravelcollective/html": "^6.2",
-        "bootstrap": "^5.0.0-beta3"
+        "laravelcollective/html": "^6.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
